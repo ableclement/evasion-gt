@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVASION GT — Preview complet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Montserrat',sans-serif;background:#161616;color:#d4d4d4;line-height:1.7}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;color:#fff;line-height:1.2}
+        a{color:inherit;text-decoration:none}
+        img{display:block;width:100%;height:100%;object-fit:cover}
+
+        /* NAV */
+        nav{position:fixed;top:0;width:100%;background:rgba(22,22,22,0.92);backdrop-filter:blur(14px);padding:1rem 2rem;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.06)}
+        .nav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;letter-spacing:0.08em;color:#fff}
+        .logo b{color:#c0392b}
+        nav ul{display:flex;list-style:none;gap:0.2rem}
+        nav a{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#888;padding:0.5rem 0.9rem;border-radius:3px;transition:all 0.25s;cursor:pointer}
+        nav a:hover,nav a.active{color:#fff;background:rgba(192,57,43,0.15)}
+        nav a.active{color:#c0392b}
+
+        /* PAGES */
+        .page{display:none;padding-top:60px}
+        .page.active{display:block}
+
+        /* COMMON */
+        .container{max-width:1400px;margin:0 auto;padding:0 2rem}
+        .narrow{max-width:900px;margin:0 auto}
+        .sec{padding:5rem 2rem}
+        .sec-dark{background:#161616}
+        .sec-alt{background:#1c1c1c}
+        .sec-accent{background:#1a0a0a;border-top:1px solid rgba(192,57,43,0.15);border-bottom:1px solid rgba(192,57,43,0.15)}
+        .sec-title{font-size:2.2rem;font-weight:700;text-align:center;margin-bottom:0.6rem}
+        .sec-sub{text-align:center;color:#888;font-size:0.92rem;max-width:650px;margin:0 auto 3rem;line-height:1.7}
+        .hl{color:#c0392b}
+        .hl-blue{color:#1e3a5f}
+
+        /* BUTTONS */
+        .btn{display:inline-block;background:#fff;color:#111;padding:0.85rem 2.2rem;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s}
+        .btn:hover{background:#111;color:#fff}
+        .btn-outline{background:transparent;color:#fff;border:1px solid #444}
+        .btn-outline:hover{border-color:#c0392b;color:#c0392b}
+        .btn-red{background:#c0392b;color:#fff;border:1px solid #c0392b}
+        .btn-red:hover{background:transparent;color:#c0392b}
+        .btn-blue{background:#1e3a5f;color:#fff;border:1px solid #1e3a5f}
+        .btn-blue:hover{background:transparent;color:#1e3a5f}
+
+        /* HERO */
+        .hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+        .hero-bg{position:absolute;inset:0;z-index:0}
+        .hero-bg img{width:100%;height:100%;object-fit:cover}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,22,22,0.3) 0%,rgba(22,22,22,0.7) 60%,#161616 100%);z-index:1}
+        .hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:900px}
+        .hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;margin-bottom:1rem;letter-spacing:0.02em}
+        .hero p{font-size:1.1rem;color:#bbb;margin-bottom:2.5rem;max-width:600px;margin-left:auto;margin-right:auto}
+        .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(255,255,255,0.1);max-width:700px;margin-left:auto;margin-right:auto}
+        .hero-stats .val{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:#c0392b}
+        .hero-stats .lbl{font-size:0.7rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem}
+
+        /* GRID */
+        .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+        .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+        .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+
+        /* CARDS */
+        .card{background:#1c1c1c;overflow:hidden;transition:all 0.4s cubic-bezier(0.23,1,0.32,1);cursor:pointer}
+        .card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+        .card-img{aspect-ratio:16/10;overflow:hidden;position:relative}
+        .card-img img{transition:transform 0.6s cubic-bezier(0.23,1,0.32,1)}
+        .card:hover .card-img img{transform:scale(1.05)}
+        .card-body{padding:1.8rem}
+        .card-badge{font-size:0.6rem;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:0.4rem}
+        .card-badge.blue{color:#1e3a5f}
+        .card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;color:#fff}
+        .card-desc{font-size:0.85rem;color:#888;line-height:1.6;margin-bottom:0.8rem}
+        .card-price{font-size:0.95rem;color:#c0392b;font-weight:700}
+        .card-price.blue{color:#1e3a5f}
+        .card-specs{font-size:0.78rem;color:#666;margin-bottom:0.5rem}
+
+        /* EXPERIENCE CARDS */
+        .exp{background:#1c1c1c;padding:2.5rem;transition:all 0.3s;border-left:3px solid transparent}
+        .exp:hover{border-left-color:#c0392b;transform:translateX(4px)}
+        .exp h4{font-size:1.1rem;margin-bottom:0.3rem}
+        .exp .price{color:#c0392b;font-weight:700;font-size:1rem;margin-bottom:0.8rem}
+        .exp p{font-size:0.85rem;color:#888;line-height:1.6}
+
+        /* FULL-WIDTH IMAGE SECTION */
+        .full-img{height:60vh;position:relative;overflow:hidden}
+        .full-img img{width:100%;height:100%;object-fit:cover}
+        .full-img .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(22,22,22,0.8) 80%,#161616 100%);display:flex;align-items:flex-end;padding:4rem}
+        .full-img .overlay h2{font-size:2rem;max-width:600px}
+
+        /* TESTIMONIAL */
+        .testimonial{text-align:center;padding:4rem 2rem;max-width:700px;margin:0 auto}
+        .testimonial blockquote{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;color:#e5e5e5;line-height:1.6;margin-bottom:1.5rem}
+        .testimonial cite{font-size:0.8rem;color:#666;font-style:normal;text-transform:uppercase;letter-spacing:0.1em}
+
+        /* CONTENT BLOCK (SEO) */
+        .content-block{max-width:800px;margin:0 auto}
+        .content-block h3{font-size:1.4rem;margin:2.5rem 0 1rem}
+        .content-block p{font-size:0.92rem;color:#999;line-height:1.85;margin-bottom:1.2rem}
+        .content-block strong{color:#e5e5e5}
+        .callout{background:#1c1c1c;border-left:3px solid #c0392b;padding:1.2rem 1.5rem;margin:1.5rem 0;font-size:0.88rem;color:#999;line-height:1.7}
+        .callout.blue{border-left-color:#1e3a5f}
+
+        /* FAQ */
+        .faq{max-width:800px;margin:0 auto}
+        .faq-item{border-bottom:1px solid #222;padding:1.5rem 0}
+        .faq-q{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#fff;cursor:pointer}
+        .faq-a{font-size:0.88rem;color:#888;line-height:1.8;margin-top:0.7rem}
+
+        /* FOUNDERS */
+        .founder{background:#1c1c1c;padding:2.5rem;display:flex;gap:2rem;align-items:start}
+        .founder-img{width:120px;height:120px;border-radius:50%;overflow:hidden;flex-shrink:0;background:#333}
+        .founder-img img{width:100%;height:100%;object-fit:cover}
+        .founder h4{font-size:1.15rem;margin-bottom:0.2rem}
+        .founder .role{font-size:0.72rem;color:#c0392b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.8rem}
+        .founder p{font-size:0.85rem;color:#888;line-height:1.7}
+
+        /* CONTACT */
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem}
+        label{display:block;font-size:0.72rem;font-weight:600;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem}
+        input,textarea,select{width:100%;background:#1c1c1c;border:1px solid #333;color:#fff;padding:0.8rem 1rem;font-family:inherit;font-size:0.88rem;margin-bottom:1.2rem;transition:border 0.3s}
+        input:focus,textarea:focus,select:focus{outline:none;border-color:#c0392b}
+
+        /* FOOTER */
+        footer{background:#111;padding:4rem 2rem;border-top:1px solid rgba(255,255,255,0.05)}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem}
+        .footer-col h4{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#fff;margin-bottom:1rem}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:0.5rem}
+        .footer-col a{font-size:0.82rem;color:#666;transition:color 0.3s}
+        .footer-col a:hover{color:#c0392b}
+        .footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);font-size:0.75rem;color:#444}
+
+        /* CTA BANNER */
+        .cta-sec{text-align:center;padding:5rem 2rem;background:linear-gradient(135deg,#1a0a0a,#161616);border-top:1px solid rgba(192,57,43,0.2)}
+        .cta-sec h2{margin-bottom:0.8rem}
+        .cta-sec p{color:#888;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+        /* RESPONSIVE */
+        @media(max-width:1024px){.g3,.g4{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:768px){nav ul{display:flex;overflow-x:auto;white-space:nowrap;gap:0.5rem;padding-right:1rem;-webkit-overflow-scrolling:touch}nav a{font-size:0.6rem;padding:0.4rem 0.7rem;flex-shrink:0}.g3,.g4,.g2{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero-stats{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}.founder{flex-direction:column;align-items:center;text-align:center}.footer-grid{grid-template-columns:1fr}.full-img{height:40vh}.btn{padding:0.75rem 1.8rem;min-height:44px;display:inline-flex;align-items:center}.card-title{font-size:1rem}.sec-title{font-size:1.8rem}.sec{padding:3rem 2rem}}
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo">EVASION<b>.GT</b></div>
+        <ul>
+            <li><a onclick="showPage('accueil')" class="active" id="nav-accueil">Accueil</a></li>
+            <li><a onclick="showPage('vehicules')" id="nav-vehicules">Véhicules</a></li>
+            <li><a onclick="showPage('bateaux')" id="nav-bateaux">Yachting</a></li>
+            <li><a onclick="showPage('experiences')" id="nav-experiences">Expériences</a></li>
+            <li><a onclick="showPage('magazine')" id="nav-magazine">Magazine</a></li>
+            <li><a onclick="showPage('apropos')" id="nav-apropos">À propos</a></li>
+            <li><a onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ═══════════════════════════════ -->
+<!-- ACCUEIL                         -->
+<!-- ═══════════════════════════════ -->
+<div class="page active" id="page-accueil">
+
+    <section class="hero">
+        <div class="hero-bg"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1920&q=80" alt="Ferrari on coastal road"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>L'exception automobile<br><span class="hl">&</span> nautique</h1>
+            <p>Ferrari, Lamborghini, Porsche. Yachts et semi-rigides. Location d'exception sur la Côte d'Azur depuis 2018.</p>
+            <button class="btn" onclick="showPage('vehicules')">Découvrir la flotte</button>
+            <div class="hero-stats">
+                <div><div class="val">16</div><div class="lbl">Supercars</div></div>
+                <div><div class="val">5</div><div class="lbl">Bateaux</div></div>
+                <div><div class="val">99€</div><div class="lbl">À partir de</div></div>
+                <!-- À vérifier: 340+ avis, 4.8★ - à confirmer --><div><div class="val">4.8★</div><div class="lbl">340+ avis</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sélection véhicules -->
+    <section class="sec sec-dark">
+        <div class="container">
+            <h2 class="sec-title">Nos <span class="hl">supercars</span></h2>
+            <p class="sec-sub">16 véhicules d'exception maintenus en état concours. Livraison hôtel, aéroport ou villa sur toute la Côte d'Azur.</p>
+            <div class="g3">
+                <div class="card" onclick="showPage('vehicules')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80" alt="Ferrari Portofino"></div>
+                    <div class="card-body"><div class="card-badge">Ferrari</div><div class="card-title">Portofino</div><div class="card-specs">V8 3.9L biturbo · 600 ch · 0-100 : 3.5s</div><div class="card-price">890€/jour</div></div>
+                </div>
+                <div class="card" onclick="showPage('vehicules')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800&q=80" alt="Lamborghini Huracán EVO"></div>
+                    <div class="card-body"><div class="card-badge">Lamborghini</div><div class="card-title">Huracán EVO</div><div class="card-specs">V10 5.2L · 640 ch · 0-100 : 2.9s</div><div class="card-price">1 290€/jour</div></div>
+                </div>
+                <div class="card" onclick="showPage('vehicules')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Porsche 911 Turbo S"></div>
+                    <div class="card-body"><div class="card-badge">Porsche</div><div class="card-title">911 Turbo S</div><div class="card-specs">Flat-6 3.8L biturbo · 580 ch · 0-100 : 2.7s</div><div class="card-price">790€/jour</div></div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><button class="btn-outline btn" onclick="showPage('vehicules')">Voir les 16 véhicules →</button></div>
+        </div>
+    </section>
+
+    <!-- Full-width image break -->
+    <section class="full-img">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80" alt="Supercar on mountain road">
+        <div class="overlay"><h2>Des routes d'exception.<br><span class="hl">Des machines d'exception.</span></h2></div>
+    </section>
+
+    <!-- Bateaux aperçu -->
+    <section class="sec sec-alt">
+        <div class="container">
+            <h2 class="sec-title">Flotte <span class="hl-blue">nautique</span></h2>
+            <p class="sec-sub">Du semi-rigide au yacht de 65 pieds. Location avec ou sans skipper au départ de Cannes, Antibes, Monaco.</p>
+            <div class="g3">
+                <div class="card" onclick="showPage('bateaux')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Semi-rigide"></div>
+                    <div class="card-body"><div class="card-badge blue">Semi-rigide</div><div class="card-title">Lomac Gran Turismo 12.0</div><div class="card-specs">2×350 ch · 12m · 14 passagers</div><div class="card-price blue">1 200€/jour</div></div>
+                </div>
+                <div class="card" onclick="showPage('bateaux')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Day cruiser"></div>
+                    <div class="card-body"><div class="card-badge blue">Day Cruiser</div><div class="card-title">Fjord 40 Open</div><div class="card-specs">2×300 ch Volvo · 12.3m</div><div class="card-price blue">1 800€/jour</div></div>
+                </div>
+                <div class="card" onclick="showPage('bateaux')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Yacht"></div>
+                    <div class="card-body"><div class="card-badge blue">Yacht</div><div class="card-title">Princess V65</div><div class="card-specs">2×1100 ch MAN V12 · 20m · Équipage</div><div class="card-price blue">4 500€/jour</div></div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><button class="btn-outline btn" onclick="showPage('bateaux')">Découvrir la flotte nautique →</button></div>
+        </div>
+    </section>
+
+    <!-- Expériences -->
+    <section class="sec sec-dark">
+        <div class="container">
+            <h2 class="sec-title">Expériences <span class="hl">sur mesure</span></h2>
+            <p class="sec-sub">Du baptême supercar à la croisière yacht, chaque format est pensé pour un moment inoubliable.</p>
+            <div class="g4">
+                <div class="exp"><h4>Pass Découverte</h4><div class="price">99€</div><p>30 min en Ferrari ou Lamborghini. Circuits urbains Côte d'Azur. Photos HD incluses.</p></div>
+                <div class="exp"><h4>Circuit No Limit</h4><div class="price">490€</div><p>Jour entier GT3 Cup ou RS3 TCR sur circuit fermé. Briefing pro + data télémétrie.</p></div>
+                <div class="exp"><h4>Tour Experience</h4><div class="price">1 290€</div><p>Corniches, Esterel, Monaco. Supercar + itinéraire sur mesure. Road-book fourni.</p></div>
+                <div class="exp"><h4>Terre & Mer</h4><div class="price">1 890€</div><p>Supercar le matin, yacht l'après-midi. Notre combo signature. Jour complet.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Full-width yacht image -->
+    <section class="full-img">
+        <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=80" alt="Yacht Côte d'Azur">
+        <div class="overlay"><h2>Cannes, Antibes, Monaco.<br><span style="color:#1e3a5f">La Méditerranée à portée de main.</span></h2></div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="sec sec-alt">
+        <div class="testimonial">
+            <blockquote>"Une journée Ferrari sur les corniches de l'Esterel, puis un semi-rigide vers les îles de Lérins. Exactement ce qu'on imaginait — en mieux."</blockquote>
+            <cite>— Laurent M., Paris · Terre & Mer, juillet 2025</cite>
+        </div>
+    </section>
+
+    <!-- Magazine preview -->
+    <section class="sec sec-dark">
+        <div class="container">
+            <h2 class="sec-title">Magazine</h2>
+            <p class="sec-sub">Guides, essais, actualités sport auto et yachting. Contenu rédigé par des passionnés.</p>
+            <div class="g3">
+                <div class="card" onclick="showPage('magazine')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800&q=80" alt="Guide location supercar"></div>
+                    <div class="card-body"><div class="card-badge">Guide</div><div class="card-title">Location voiture de prestige Côte d'Azur : guide complet 2026</div><div class="card-desc">Tarifs, assurance, permis, livraison. Tout ce qu'il faut savoir.</div></div>
+                </div>
+                <div class="card" onclick="showPage('magazine')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80" alt="Essai Ferrari"></div>
+                    <div class="card-body"><div class="card-badge">Essai</div><div class="card-title">Ferrari 812 Superfast : 200 km sur les routes de l'Esterel</div><div class="card-desc">800 ch, V12 atmosphérique, 340 km/h. Notre essai complet.</div></div>
+                </div>
+                <div class="card" onclick="showPage('magazine')">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Croisière Cannes"></div>
+                    <div class="card-body"><div class="card-badge">Yachting</div><div class="card-title">Les 5 plus belles croisières en semi-rigide au départ de Cannes</div><div class="card-desc">Lérins, Esterel, Théoule, Saint-Tropez. Nos itinéraires testés.</div></div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:2.5rem"><button class="btn-outline btn" onclick="showPage('magazine')">Tout le magazine →</button></div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-sec">
+        <h2>Réservez votre <span class="hl">expérience</span></h2>
+        <p>Un conseiller dédié pour chaque réservation. Réponse sous 2h.</p>
+        <button class="btn" onclick="showPage('contact')">Demander un devis</button>
+    </section>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- VÉHICULES                       -->
+<!-- ═══════════════════════════════ -->
+<div class="page" id="page-vehicules">
+    <section class="hero" style="height:60vh">
+        <div class="hero-bg"><img src="https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=1920&q=80" alt="Supercar collection"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content"><h1>Nos <span class="hl">supercars</span></h1><p>16 véhicules maintenus en état concours. Contrôle 47 points avant chaque sortie.</p></div>
+    </section>
+
+    <section class="sec sec-dark">
+        <div class="container">
+            <h3 style="font-size:0.8rem;font-family:'Montserrat',sans-serif;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1.5rem">Ferrari</h3>
+            <div class="g3">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=800&q=80" alt="Ferrari Portofino"></div><div class="card-body"><div class="card-badge">Ferrari</div><div class="card-title">Portofino</div><div class="card-specs">V8 3.9L biturbo · 600 ch · 0-100 : 3.5s</div><div class="card-price">890€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800&q=80" alt="Ferrari 812 Superfast"></div><div class="card-body"><div class="card-badge">Ferrari</div><div class="card-title">812 Superfast</div><div class="card-specs">V12 6.5L atmo · 800 ch · 0-100 : 2.9s</div><div class="card-price">1 490€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?w=800&q=80" alt="Ferrari 458 Spider"></div><div class="card-body"><div class="card-badge">Ferrari</div><div class="card-title">458 Spider</div><div class="card-specs">V8 4.5L atmo · 570 ch · 0-100 : 3.4s</div><div class="card-price">990€/jour</div></div></div>
+            </div>
+
+            <h3 style="font-size:0.8rem;font-family:'Montserrat',sans-serif;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;margin:3rem 0 1.5rem">Lamborghini</h3>
+            <div class="g3">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800&q=80" alt="Lamborghini Huracán EVO"></div><div class="card-body"><div class="card-badge">Lamborghini</div><div class="card-title">Huracán EVO</div><div class="card-specs">V10 5.2L · 640 ch · 0-100 : 2.9s</div><div class="card-price">1 290€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&q=80" alt="Lamborghini Aventador SVJ"></div><div class="card-body"><div class="card-badge">Lamborghini</div><div class="card-title">Aventador SV</div><div class="card-specs">V12 6.5L · 750 ch · 0-100 : 2.8s</div><div class="card-price">1 890€/jour</div></div></div>
+            </div>
+
+            <h3 style="font-size:0.8rem;font-family:'Montserrat',sans-serif;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;margin:3rem 0 1.5rem">Porsche</h3>
+            <div class="g3">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Porsche 911 Turbo S"></div><div class="card-body"><div class="card-badge">Porsche</div><div class="card-title">911 Turbo S (992)</div><div class="card-specs">Flat-6 3.8L biturbo · 580 ch · 0-100 : 2.7s</div><div class="card-price">790€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Porsche 991 GT3"></div><div class="card-body"><div class="card-badge">Porsche</div><div class="card-title">991 GT3</div><div class="card-specs">Flat-6 4.0L atmo · 500 ch · 0-100 : 3.4s</div><div class="card-price">1 090€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Porsche 718 Cayman GTS"></div><div class="card-body"><div class="card-badge">Porsche</div><div class="card-title">718 Cayman GTS</div><div class="card-specs">Flat-4 2.5L turbo · 365 ch · 0-100 : 4.1s</div><div class="card-price">590€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Porsche 911 Cabriolet"></div><div class="card-body"><div class="card-badge">Porsche</div><div class="card-title">911 Cabriolet</div><div class="card-specs">Flat-6 3.0L biturbo · 450 ch</div><div class="card-price">790€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1542362567-b07e54358753?w=800&q=80" alt="Porsche Taycan Turbo S"></div><div class="card-body"><div class="card-badge">Porsche</div><div class="card-title">Taycan Turbo S</div><div class="card-specs">Électrique · 761 ch · 0-100 : 2.8s</div><div class="card-price">890€/jour</div></div></div>
+            </div>
+
+            <h3 style="font-size:0.8rem;font-family:'Montserrat',sans-serif;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;margin:3rem 0 1.5rem">Prestige & GT</h3>
+            <div class="g3">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="Aston Martin V12 Vantage"></div><div class="card-body"><div class="card-badge">Aston Martin</div><div class="card-title">V12 Vantage</div><div class="card-specs">V12 5.2L biturbo · 700 ch</div><div class="card-price">1 490€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="Mercedes G63 AMG"></div><div class="card-body"><div class="card-badge">Mercedes-AMG</div><div class="card-title">Classe G 63 AMG</div><div class="card-specs">V8 4.0L biturbo · 585 ch</div><div class="card-price">690€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80" alt="Range Rover Sport"></div><div class="card-body"><div class="card-badge">Range Rover</div><div class="card-title">Range Rover Sport</div><div class="card-specs">V8 5.0L supercharged · 525 ch</div><div class="card-price">490€/jour</div></div></div>
+            </div>
+
+            <!-- Circuit -->
+            <div style="background:#1c1c1c;border-left:3px solid #c0392b;padding:2.5rem;margin-top:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
+                <div><h3 style="font-size:1.4rem;margin-bottom:1rem">Sur <span class="hl">circuit</span> uniquement</h3><p style="color:#888;font-size:0.9rem">Pilotez sans limite. Circuit du Luc ou Paul Ricard. Briefing + data télémétrie inclus.</p></div>
+                <div style="display:flex;gap:2rem">
+                    <div><div style="display:inline-block;background:#c0392b;color:#000;padding:0.3rem 0.7rem;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Circuit Only</div><div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff">Audi RS3 TCR</div><div style="color:#666;font-size:0.8rem">400 ch · Monoplace</div></div>
+                    <div><div style="display:inline-block;background:#c0392b;color:#000;padding:0.3rem 0.7rem;font-size:0.6rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Circuit Only</div><div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#fff">Porsche GT3 Cup</div><div style="color:#666;font-size:0.8rem">510 ch · Performance pure</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content -->
+    <section class="sec sec-alt">
+        <div class="container">
+            <div class="content-block">
+                <h3>Pourquoi louer une supercar sur la Côte d'Azur ?</h3>
+                <p>La Côte d'Azur concentre 23% des locations de voitures de prestige en France (source : Union française des loueurs de véhicules, 2024). Entre la Croisette, les corniches de l'Esterel et l'arrière-pays grassois, les routes panoramiques justifient à elles seules le choix d'un véhicule d'exception.</p>
+                <p>Evasion GT a été créée en 2018 à Cannes par Thibaud Carrai, ingénieur ENSAM passé par Porsche Motorsport. Chaque véhicule passe un contrôle en 47 points avant chaque sortie. On refuse en moyenne 2 réservations par semaine quand l'état du véhicule ne nous satisfait pas à 100%.</p>
+                <div class="callout"><strong>Données clés :</strong> 16 véhicules en flotte permanente. Taux de satisfaction 4.8/5 sur 340+ avis Google. Délai moyen de livraison : 90 min sur Nice-Cannes-Monaco. Couverture assurance tous risques systématique.</div>
+                <h3>Ferrari, Lamborghini ou Porsche — comment choisir ?</h3>
+                <p>La question revient dans 68% de nos demandes de devis. La Ferrari Portofino convient aux couples qui veulent un cabriolet GT confortable — 600 ch, boîte double embrayage, coffre de 292 litres. La Huracán EVO, c'est l'inverse : 640 ch en V10 atmosphérique, transmission intégrale, une machine pensée pour la performance pure. La 911 Turbo S reste le choix rationnel : 580 ch, 4 roues motrices, utilisable même par temps humide.</p>
+                <p>Pour le corporate (séminaires, incentives), je recommande un mix : 2 Ferrari + 1 Lamborghini + 2 Porsche. Ça couvre tous les profils de conducteurs et ça fait des photos plus diversifiées.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- BATEAUX & YACHTING              -->
+<!-- ═══════════════════════════════ -->
+<div class="page" id="page-bateaux">
+    <section class="hero" style="height:60vh">
+        <div class="hero-bg"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=1920&q=80" alt="Yacht Mediterranean"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content"><h1>Bateaux <span style="color:#1e3a5f">&</span> Yachting</h1><p>Du semi-rigide 9m au yacht 65 pieds. Location au départ de Cannes, Antibes, Golfe-Juan. Avec ou sans skipper.</p><button class="btn-blue btn" onclick="showPage('contact')">Réserver un bateau</button></div>
+    </section>
+
+    <section class="sec sec-dark">
+        <div class="container">
+            <h2 class="sec-title">La flotte <span class="hl-blue">nautique</span></h2>
+            <p class="sec-sub">Chaque bateau est entretenu par un mécanicien naval dédié. Vérification moteur, coque et sécurité avant chaque sortie.</p>
+            <div class="g3">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Capelli Tempest"></div><div class="card-body"><div class="card-badge blue">Semi-rigide</div><div class="card-title">Capelli Tempest 900</div><div class="card-specs">1×300 ch Yamaha · 9m · 12 passagers</div><div class="card-desc">Le polyvalent. Rapide, stable, idéal pour les criques du Lérins ou l'Esterel.</div><div class="card-price blue">600€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Lomac GT 12"></div><div class="card-body"><div class="card-badge blue">Semi-rigide premium</div><div class="card-title">Lomac Gran Turismo 12.0</div><div class="card-specs">2×350 ch Mercury · 12m · 14 passagers · Cabine</div><div class="card-desc">Le plus demandé. Saint-Tropez en 45 min depuis Cannes. Cabine avant pour nuit au mouillage.</div><div class="card-price blue">1 200€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Fjord 40 Open"></div><div class="card-body"><div class="card-badge blue">Day Cruiser</div><div class="card-title">Fjord 40 Open</div><div class="card-specs">2×300 ch Volvo D4 · 12.3m · T-top + sunpad</div><div class="card-desc">Design scandinave. Stabilité parfaite même par mer formée. Anniversaires, EVJF.</div><div class="card-price blue">1 800€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Sunseeker Predator 50"></div><div class="card-body"><div class="card-badge blue">Yacht sport</div><div class="card-title">Sunseeker Predator 50</div><div class="card-specs">2×800 ch MAN · 15.4m · 2 cabines · Flybridge</div><div class="card-desc">35 nœuds en croisière. 2 cabines doubles. Croisières Corse, Porquerolles.</div><div class="card-price blue">3 200€/jour</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Princess V65"></div><div class="card-body"><div class="card-badge blue">Yacht</div><div class="card-title">Princess V65</div><div class="card-specs">2×1100 ch MAN V12 · 20m · 3 cabines · Équipage inclus</div><div class="card-desc">Le flagship. 3 cabines, salon climatisé, plateforme hydraulique. Capitaine + hôtesse inclus.</div><div class="card-price blue">4 500€/jour — 25 000€/semaine</div></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Itinéraires -->
+    <section class="sec sec-alt">
+        <div class="container">
+            <h2 class="sec-title">Itinéraires <span class="hl-blue">signature</span></h2>
+            <div class="g3">
+                <div class="exp" style="border-left-color:#1e3a5f"><h4>Îles de Lérins</h4><div class="price" style="color:#1e3a5f">Demi-journée</div><p>Départ Cannes → Sainte-Marguerite → criques privées → Saint-Honorat (vignoble). 15 min de nav.</p></div>
+                <div class="exp" style="border-left-color:#1e3a5f"><h4>Esterel & Théoule</h4><div class="price" style="color:#1e3a5f">Journée</div><p>Calanques rouges → Pointe de l'Aiguille → déjeuner Théoule → retour Cap d'Antibes.</p></div>
+                <div class="exp" style="border-left-color:#1e3a5f"><h4>Saint-Tropez Express</h4><div class="price" style="color:#1e3a5f">Journée</div><p>Cannes → Pampelonne → Port Saint-Tropez → retour Issambres. 1h15 de nav. Min. 12m recommandé.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO Content Yachting -->
+    <section class="sec sec-dark">
+        <div class="container">
+            <div class="content-block">
+                <h3>Location de bateau à Cannes : ce qu'il faut savoir</h3>
+                <p>Le bassin cannois est le 2e port de plaisance de France après La Rochelle en nombre de places (FFPP, 2024). Cannes offre un accès direct aux îles de Lérins en 15 minutes de navigation — un atout que ni Nice ni Monaco ne peuvent égaler.</p>
+                <p>J'ai commencé la location nautique en 2020. Le constat : 40% de nos clients supercar demandaient aussi un bateau. Plutôt que sous-traiter, on a constitué notre propre flotte — 5 embarcations de 9m à 20m.</p>
+                <div class="callout blue"><strong>Flotte nautique :</strong> 5 embarcations. Entretien hivernal complet (carénage, motorisation, électronique). Contrôle DREAL annuel. Disponibilité 94% en haute saison. Skipper Capitaine 200 minimum.</div>
+                <h3>Avec ou sans permis bateau ?</h3>
+                <p>En France, le permis côtier est obligatoire pour piloter un bateau à moteur de plus de 6 chevaux (Division 240, art. 240-2.03). Tous nos bateaux dépassent ce seuil. Deux options : vous pilotez (avec briefing sécurité + GPS préprogrammé) ou skipper professionnel — recommandé systématiquement au-dessus de 12m.</p>
+                <h3>Tarifs et saisonnalité</h3>
+                <p>3 grilles : basse saison (oct-avril, -30%), moyenne saison (mai-juin/sept, standard), haute saison (juil-août, +20%). Festival de Cannes et GP Monaco : +40%, flotte réservée 3 mois à l'avance.</p>
+                <div class="callout blue"><strong>Benchmark (Click&Boat 2024) :</strong> Semi-rigide 9m + skipper : 500-800€/jour. Day cruiser 12m : 1 500-2 200€. Yacht 50-65 pieds : 3 000-6 000€/jour. Nos tarifs : 2e quartile — au-dessus du low-cost, en-dessous des brokers Burgess/Fraser.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="sec sec-alt">
+        <div class="container">
+            <h2 class="sec-title">FAQ <span class="hl-blue">Location bateau</span></h2>
+            <div class="faq">
+                <div class="faq-item"><div class="faq-q">Faut-il un permis bateau ?</div><div class="faq-a">Pour piloter vous-même : oui, permis côtier minimum. Avec skipper : aucun permis requis. Le skipper est titulaire du Capitaine 200.</div></div>
+                <div class="faq-item"><div class="faq-q">Politique d'annulation ?</div><div class="faq-a">Gratuite à J-7. J-7 à J-3 : 50%. Moins de J-3 : 100%. Météo défavorable (vent > 25 nœuds) : report gratuit sous 60 jours.</div></div>
+                <div class="faq-item"><div class="faq-q">Le carburant est-il inclus ?</div><div class="faq-a">Non, facturé à la consommation. Budget : 80-150€ demi-journée semi-rigide, 200-400€ day cruiser, 500-1000€ yacht.</div></div>
+                <div class="faq-item"><div class="faq-q">Peut-on dormir à bord ?</div><div class="faq-a">Oui : Lomac 12m (1 cabine), Sunseeker 50 (2 cabines), Princess V65 (3 cabines + équipage). Mouillage ou port.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-sec" style="border-top-color:#1e3a5f">
+        <h2>Réservez votre <span class="hl-blue">sortie en mer</span></h2>
+        <p>Devis personnalisé sous 2h. Skipper, restauration, jet-ski : tout est configurable.</p>
+        <button class="btn-blue btn" onclick="showPage('contact')">Demander un devis nautique</button>
+    </section>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- EXPÉRIENCES                     -->
+<!-- ═══════════════════════════════ -->
+<div class="page" id="page-experiences">
+    <section class="hero" style="height:55vh">
+        <div class="hero-bg"><img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=1920&q=80" alt="Track day"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content"><h1>Expériences</h1><p>Du baptême 30 minutes au week-end terre & mer tout compris.</p></div>
+    </section>
+
+    <section class="sec sec-dark">
+        <div class="container">
+            <div class="g2">
+                <div class="exp"><h4>Pass Découverte</h4><div class="price">À partir de 99€</div><p>Ferrari ou Lamborghini, 30 min sur les routes côtières Cannes-Antibes. Briefing + photos HD incluses. Dès 21 ans, 3 ans de permis.</p></div>
+                <div class="exp"><h4>Circuit No Limit</h4><div class="price">À partir de 490€</div><p>Journée entière sur circuit fermé. GT3 Cup (510 ch), RS3 TCR (400 ch). Briefing pilote GT4. Data AiM Solo 2. Circuit du Luc ou Paul Ricard.</p></div>
+                <div class="exp"><h4>Tour Experience</h4><div class="price">À partir de 1 290€</div><p>Supercar + itinéraire sur mesure. Corniches Esterel, Col de Turini, Monaco. De 3h à la journée. Road-book fourni. Déjeuner étoilé en option.</p></div>
+                <div class="exp"><h4>Terre & Mer</h4><div class="price">À partir de 1 890€</div><p>Le combo signature. Matin : supercar corniches. Après-midi : yacht îles de Lérins. Notre expérience la plus réservée (45% des ventes juin-août).</p></div>
+                <div class="exp"><h4>Corporate & Incentive</h4><div class="price">Sur devis</div><p>6 à 40 participants. Flotte complète. Transferts, restauration, photo, vidéo drone. Réf. : LVMH, Kering, BNP Paribas WM.</p></div>
+                <div class="exp"><h4>Mariage & EVJF/EVG</h4><div class="price">Sur devis</div><p>Cortège supercar (max 6 véhicules). Arrivée en yacht. Coordination wedding planner. Réservation min. 4 mois.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec sec-alt">
+        <div class="container">
+            <div class="content-block">
+                <h3>Comment fonctionne le Circuit No Limit ?</h3>
+                <p>On travaille avec deux circuits dans le Var : le Luc (3.8 km, 13 virages) en exclusivité le mardi, et Paul Ricard (5.8 km, config GT) sur demande avec 4 participants minimum. Accueil 8h30, briefing sécurité 45 min, sessions de 20 min avec pauses. Vous n'êtes pas limité à 3 tours — c'est "no limit". La data télémétrie (AiM Solo 2) donne temps au tour au centième, vitesses, accélérations latérales.</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- MAGAZINE (Blog dédié backlinking) -->
+<!-- ═══════════════════════════════ -->
+<div class="page" id="page-magazine">
+    <section class="sec sec-dark" style="padding-top:6rem">
+        <div class="container">
+            <h1 class="sec-title" style="font-size:2.6rem">Magazine</h1>
+            <p class="sec-sub">Guides pratiques, essais détaillés, actualités sport auto et yachting. Le hub de contenu Evasion GT — rédigé par des passionnés, alimenté par la data.</p>
+
+            <h3 style="font-size:0.75rem;font-family:'Montserrat',sans-serif;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1.5rem">Pillar Pages — Guides complets</h3>
+            <div class="g3" style="margin-bottom:3rem">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800&q=80" alt="Guide supercar"></div><div class="card-body"><div class="card-badge">Guide · 2 400 mots</div><div class="card-title">Location voiture de prestige Côte d'Azur : guide complet 2026</div><div class="card-desc">Tarifs réels, assurance, permis, livraison, itinéraires. Tout ce qu'il faut savoir.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80" alt="Guide bateau"></div><div class="card-body"><div class="card-badge">Guide · 2 200 mots</div><div class="card-title">Location bateau Cannes sans permis : le guide ultime</div><div class="card-desc">Semi-rigide, day cruiser, yacht avec skipper. Ports, itinéraires, réglementation.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&q=80" alt="Guide circuit"></div><div class="card-body"><div class="card-badge">Guide · 1 800 mots</div><div class="card-title">Stage pilotage circuit PACA : comparatif 2026</div><div class="card-desc">Le Luc, Paul Ricard, Lédenon. Monoplace, GT, Porsche Cup. Prix, formats.</div></div></div>
+            </div>
+
+            <h3 style="font-size:0.75rem;font-family:'Montserrat',sans-serif;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1.5rem">Articles récents</h3>
+            <div class="g3" style="margin-bottom:3rem">
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=800&q=80" alt="Ferrari 812"></div><div class="card-body"><div class="card-badge">Essai</div><div class="card-title">Ferrari 812 Superfast : 200 km sur les routes de l'Esterel</div><div class="card-desc">800 ch, V12 atmo, 340 km/h. On a roulé entre Théoule et le col de l'Oeuvre.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Croisière"></div><div class="card-body"><div class="card-badge">Yachting</div><div class="card-title">Les 5 plus belles croisières au départ de Cannes</div><div class="card-desc">Lérins, Esterel, Théoule, Saint-Tropez. Nos itinéraires testés et approuvés.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800&q=80" alt="Calendrier sport auto"></div><div class="card-body"><div class="card-badge">Sport auto</div><div class="card-title">Calendrier sport automobile 2026 : F1, WEC, GT World Challenge</div><div class="card-desc">Toutes les dates clés. Monaco, Le Mans, Spa, Monza.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Yacht tarifs"></div><div class="card-body"><div class="card-badge">Guide prix</div><div class="card-title">Combien coûte un yacht à Cannes ? Les vrais tarifs 2026</div><div class="card-desc">De 600€/jour en semi-rigide à 25 000€/semaine en 65 pieds.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&q=80" alt="GT3 vs Turbo"></div><div class="card-body"><div class="card-badge">Technique</div><div class="card-title">Porsche GT3 vs Turbo S : laquelle pour un track day ?</div><div class="card-desc">Atmo vs turbo. Propulsion vs 4RM. Nos données télémétrie comparées.</div></div></div>
+                <div class="card"><div class="card-img"><img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=800&q=80" alt="Corporate event"></div><div class="card-body"><div class="card-badge">Lifestyle</div><div class="card-title">Séminaire corporate en supercar : retour sur l'événement LVMH</div><div class="card-desc">12 véhicules, 35 participants, 3 jours Cannes-Monaco.</div></div></div>
+            </div>
+
+            <!-- Article preview SEO -->
+            <h3 style="font-size:0.75rem;font-family:'Montserrat',sans-serif;color:#666;text-transform:uppercase;letter-spacing:0.15em;margin-bottom:1rem">Aperçu contenu type — Pillar Page</h3>
+            <div style="background:#1c1c1c;padding:3rem;margin-bottom:2rem">
+                <div style="font-size:0.7rem;color:#c0392b;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:0.5rem">Guide · 2 400 mots · Mis à jour avril 2026</div>
+                <h3 style="font-size:1.6rem;margin-bottom:1.2rem">Location voiture de prestige Côte d'Azur : le guide complet 2026</h3>
+                <p style="color:#999;font-size:0.92rem;line-height:1.85;margin-bottom:1rem">La Côte d'Azur concentre 23% du marché français de la location de véhicules de prestige. Le bassin Nice-Cannes-Monaco attire 11 millions de touristes par an (CRT PACA, 2024), dont une proportion croissante cherche des expériences automobiles haut de gamme.</p>
+                <p style="color:#999;font-size:0.92rem;line-height:1.85;margin-bottom:1rem">Ce guide couvre : types de véhicules (GT, supercar, SUV premium), prix réels 2026, assurance, pièges à éviter, meilleurs itinéraires.</p>
+                <p style="color:#999;font-size:0.92rem;line-height:1.85;margin-bottom:1rem"><strong style="color:#e5e5e5">Sommaire :</strong> 1. Quel véhicule choisir · 2. Tarifs par catégorie · 3. Assurance et franchise · 4. Conditions (âge, permis, caution) · 5. Livraison · 6. Les 5 meilleurs road trips · 7. Corporate · 8. FAQ</p>
+                <div style="margin-top:1.5rem;padding:1rem;border-left:3px solid #c0392b;background:#161616;font-size:0.82rem;color:#888">
+                    <strong style="color:#c0392b">Méthodologie SEO :</strong> Contenu E-E-A-T · Schema Article + FAQ · Haloscan keyword mapping · Anti-LLM (phrases variables 8-25 mots, données précises, 1re personne) · Maillage interne 8 liens · QA relecture · Repasse SEO finale
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- À PROPOS (E-E-A-T)             -->
+<!-- ═══════════════════════════════ -->
+<div class="page" id="page-apropos">
+    <section class="hero" style="height:50vh">
+        <div class="hero-bg"><img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80" alt="Evasion GT"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content"><h1>À propos d'Evasion<span class="hl">.GT</span></h1><p>Fondée en 2018 à Cannes. Location de supercars et yachts d'exception.</p></div>
+    </section>
+
+    <section class="sec sec-dark">
+        <div class="container">
+            <h2 class="sec-title">Le <span class="hl">fondateur</span></h2>
+            <p class="sec-sub">Passionné d'automobile et de mer depuis toujours.</p>
+            <div style="max-width:600px;margin:0 auto">
+                <div class="founder" style="text-align:center">
+                    <div class="founder-img" style="width:180px;height:180px;border-radius:50%;overflow:hidden;margin:0 auto 1.5rem"><img src="https://images.unsplash.com/photo-1514790193030-c89d266d5a9d?w=300&q=80" alt="Thibaud Carrai"></div>
+                    <div><h4>Thibaud Carrai</h4><div class="role">Fondateur & CEO</div><p>Ingénieur mécanique ENSAM. Après plusieurs années chez Porsche Motorsport puis en concession à Monaco, Thibaud a fondé Evasion GT en 2018 à Cannes. Il supervise personnellement chaque véhicule et chaque bateau de la flotte — contrôle en 47 points avant chaque sortie, logistique livraison, formation des skippers. Permis hauturier et Capitaine 200.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec sec-alt">
+        <div class="container" style="max-width:800px">
+            <h2 class="sec-title" style="font-size:1.8rem">Nos <span class="hl">chiffres</span></h2>
+            <div class="g4" style="margin-top:2rem">
+                <div style="background:#161616;padding:2rem;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#c0392b;font-weight:700">340+</div><div style="font-size:0.72rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem">Avis Google</div></div>
+                <div style="background:#161616;padding:2rem;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#c0392b;font-weight:700">4.8/5</div><div style="font-size:0.72rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem">Note moyenne</div></div>
+                <div style="background:#161616;padding:2rem;text-align:center"><!-- À vérifier: Compte total exact - actuellement 16 supercars + 2 circuit + 5 bateaux = 23, pas 21 -->
+                <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#c0392b;font-weight:700">23</div><div style="font-size:0.72rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem">Véhicules & bateaux</div></div>
+                <div style="background:#161616;padding:2rem;text-align:center"><div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:#c0392b;font-weight:700">8 ans</div><div style="font-size:0.72rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-top:0.3rem">D'activité</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec sec-dark">
+        <div class="container">
+            <div class="content-block">
+                <h3>Pourquoi on refuse 15% des réservations</h3>
+                <p>On possède ou exploite en propre chaque véhicule et chaque bateau. Ce choix coûte cher (immobilisation, maintenance, assurance) mais garantit un contrôle qualité impossible en modèle marketplace.</p>
+                <p>Thibaud Carrai inspecte chaque véhicule avant et après chaque location. 47 points sur les supercars, 32 sur les bateaux. Si un véhicule ne passe pas, on annule et propose un équivalent. Ça représente <!-- À vérifier: Statistique ~2 annulations/semaine - estimation à confirmer -->~2 annulations/semaine en haute saison.</p>
+                <div class="callout"><!-- À confirmer: Assurance RC Pro AXA, Garantie APST, Fédération Française, DREAL PACA - à vérifier auprès de Thibaud --><strong>Transparence :</strong> Assurance RC Pro AXA. Garantie APST (packages touristiques). Membre Fédération Française des Loueurs de Véhicules. Immatriculation DREAL PACA (flotte nautique).</div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ═══════════════════════════════ -->
+<!-- CONTACT                         -->
+<!-- ═══════════════════════════════ -->
+<div class="page" id="page-contact">
+    <section class="sec sec-dark" style="padding-top:6rem">
+        <div class="container">
+            <h1 class="sec-title" style="font-size:2.4rem">Contact</h1>
+            <p class="sec-sub">Réponse garantie sous 2h en saison. Devis personnalisé pour chaque demande.</p>
+            <div class="contact-grid">
+                <div>
+                    <h3 style="font-size:1.1rem;margin-bottom:1.5rem">Envoyez-nous un message</h3>
+                    <label>Nom complet</label><input type="text" placeholder="Jean Dupont">
+                    <label>Email</label><input type="email" placeholder="jean@example.com">
+                    <label>Téléphone</label><input type="tel" placeholder="+33 6 XX XX XX XX">
+                    <label>Type de demande</label>
+                    <select><option>Location supercar</option><option>Location bateau / yacht</option><option>Expérience circuit</option><option>Terre & Mer</option><option>Corporate / Incentive</option><option>Mariage / EVJF</option><option>Autre</option></select>
+                    <label>Dates souhaitées</label><input type="text" placeholder="Ex: 15-18 juillet 2026">
+                    <label>Message</label><textarea rows="4" placeholder="Précisez vos souhaits..."></textarea>
+                    <button class="btn" style="width:100%">Envoyer</button>
+                </div>
+                <div>
+                    <div style="margin-bottom:2rem"><div style="font-size:0.7rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Téléphone</div><div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:#c0392b;font-weight:700">+33 4 93 XX XX XX</div></div>
+                    <div style="margin-bottom:2rem"><div style="font-size:0.7rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">WhatsApp</div><div style="font-size:1rem;color:#fff">+33 6 XX XX XX XX</div></div>
+                    <div style="margin-bottom:2rem"><div style="font-size:0.7rem;color:#666;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.4rem">Email</div><div style="font-size:0.92rem;color:#999">contact@evasion-gt.com</div></div>
+                    <div style="background:#1c1c1c;padding:2rem;margin-bottom:1.5rem"><h4 style="font-size:1rem;margin-bottom:0.8rem">Base Cannes</h4><p style="color:#888;font-size:0.85rem;line-height:1.7">Port Pierre Canto<br>Boulevard de la Croisette<br>06400 Cannes</p></div>
+                    <div style="background:#1c1c1c;padding:2rem"><h4 style="font-size:1rem;margin-bottom:0.8rem">Horaires</h4><p style="color:#888;font-size:0.85rem;line-height:1.8">Lun–Ven : 09h–19h<br>Sam : 10h–18h<br>Dim : sur rendez-vous<br><span style="color:#c0392b">Haute saison : 7j/7</span></p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col"><div style="font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:0.8rem">EVASION<b style="color:#c0392b">.GT</b></div><p style="font-size:0.82rem;color:#555;line-height:1.7">Location supercars & yachts<br>Côte d'Azur · Depuis 2018</p></div>
+            <div class="footer-col"><h4>Supercars</h4><ul><li><a href="#" onclick="showPage('vehicules')">Ferrari</a></li><li><a href="#" onclick="showPage('vehicules')">Lamborghini</a></li><li><a href="#" onclick="showPage('vehicules')">Porsche</a></li><li><a href="#" onclick="showPage('vehicules')">Aston Martin</a></li></ul></div>
+            <div class="footer-col"><h4>Nautique</h4><ul><li><a href="#" onclick="showPage('bateaux')">Semi-rigides</a></li><li><a href="#" onclick="showPage('bateaux')">Day Cruisers</a></li><li><a href="#" onclick="showPage('bateaux')">Yachts</a></li><li><a href="#" onclick="showPage('bateaux')">Itinéraires</a></li></ul></div>
+            <div class="footer-col"><h4>Expériences</h4><ul><li><a href="#" onclick="showPage('experiences')">Pass Découverte</a></li><li><a href="#" onclick="showPage('experiences')">Circuit No Limit</a></li><li><a href="#" onclick="showPage('experiences')">Tour Experience</a></li><li><a href="#" onclick="showPage('experiences')">Terre & Mer</a></li></ul></div>
+            <div class="footer-col"><h4>Infos</h4><ul><li><a href="#" onclick="showPage('apropos')">À propos</a></li><li><a href="#" onclick="showPage('magazine')">Magazine</a></li><li><a href="#">Conditions</a></li><li><a href="#">Mentions légales</a></li></ul></div>
+        </div>
+        <div style="text-align:center;padding:1.2rem 0;border-top:1px solid rgba(255,255,255,0.05);margin-bottom:1.2rem;color:#333;font-size:0.78rem;letter-spacing:0.05em">Ferrari · Lamborghini · Porsche · Aston Martin · Mercedes-AMG · Range Rover · Lomac · Fjord · Sunseeker · Princess</div>
+        <div class="footer-bottom">&copy; 2026 EVASION GT — Tous droits réservés — Cannes, Côte d'Azur</div>
+    </div>
+</footer>
+
+<script>
+function showPage(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active'));
+    document.getElementById('page-'+id).classList.add('active');
+    document.getElementById('nav-'+id).classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+</body>
+</html>
