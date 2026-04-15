@@ -1,43 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://evasion-gt.com/</loc>
+        <loc>https://evasion-gt.pages.dev/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://evasion-gt.com/vehicules/</loc>
+        <loc>https://evasion-gt.pages.dev/vehicules/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://evasion-gt.com/bateaux/</loc>
+        <loc>https://evasion-gt.pages.dev/bateaux/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://evasion-gt.com/experiences/</loc>
+        <loc>https://evasion-gt.pages.dev/experiences/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
     </url>
     <url>
-        <loc>https://evasion-gt.com/magazine/</loc>
+        <loc>https://evasion-gt.pages.dev/magazine/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.85</priority>
     </url>
     <url>
-        <loc>https://evasion-gt.com/a-propos/</loc>
+        <loc>https://evasion-gt.pages.dev/a-propos/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://evasion-gt.com/contact/</loc>
+        <loc>https://evasion-gt.pages.dev/contact/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://evasion-gt.pages.dev/magazine/guide-location-supercar-cote-azur/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://evasion-gt.pages.dev/magazine/guide-location-bateau-cannes/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://evasion-gt.pages.dev/magazine/guide-pilotage-circuit-paca/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://evasion-gt.pages.dev/magazine/essai-ferrari-812-superfast/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://evasion-gt.pages.dev/magazine/croisieres-semi-rigide-cannes/</loc>
+        <lastmod>2026-04-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://evasion-gt.pages.dev/magazine/calendrier-sport-automobile-2026/</loc>
         <lastmod>2026-04-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>

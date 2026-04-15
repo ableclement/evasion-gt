@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Yacht Cannes | Bateau Luxe Côte d'Azur | EVASION GT</title>
+    <meta name="description" content="Location de yachts et bateaux luxe à Cannes, Antibes, Monaco. Croisières en Méditerranée avec équipage. Réservez votre expérience nautique.">
+    
+    <link rel="canonical" href="https://evasion-gt.pages.dev/bateaux/">
+    
+    <meta property="og:title" content="Location Yacht Cannes | Bateau Luxe Côte d'Azur | EVASION GT">
+    <meta property="og:description" content="Location de yachts et bateaux luxe à Cannes, Antibes, Monaco. Croisières en Méditerranée avec équipage. Réservez votre expérience nautique.">
+    <meta property="og:url" content="https://evasion-gt.pages.dev/bateaux/">
+    <meta property="og:type" content="website">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://evasion-gt.pages.dev/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Yachting",
+            "item": "https://evasion-gt.pages.dev/bateaux/"
+        }
+    ]
+}
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #161616;
+            color: #d4d4d4;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #c0392b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #d4d4d4;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover { color: #c0392b; }
+        nav a.active { color: #c0392b; }
+        nav a.active::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: #c0392b; }
+
+        .breadcrumb {
+            padding: 1rem 3rem;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb a { color: #c0392b; text-decoration: none; }
+        .breadcrumb span { color: #888; margin: 0 0.5rem; }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1616 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(192, 57, 43, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p { font-size: 1.2rem; color: #d4d4d4; }
+
+        .content-section {
+            padding: 4rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #ffffff; }
+        .content-section h3 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; color: #c0392b; }
+        .content-section p { font-size: 1rem; color: #d4d4d4; margin-bottom: 1.5rem; line-height: 1.8; }
+        .content-section strong { color: #ffffff; }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #c0392b;
+            box-shadow: 0 10px 30px rgba(192, 57, 43, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(135deg, #2a1616 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .card-body { padding: 1.5rem; }
+        .card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: #ffffff; }
+        .card-price { font-size: 1.1rem; color: #c0392b; font-weight: 700; margin: 0.5rem 0; }
+        .card-desc { font-size: 0.85rem; color: #aaaaaa; margin-bottom: 1rem; }
+
+        .card-cta {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #ffffff;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border: 2px solid #c0392b;
+        }
+
+        .card-cta:hover {
+            background-color: transparent;
+            color: #c0392b;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1616 100%);
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .cta-section h2 { font-size: 2rem; margin-bottom: 1rem; }
+        .cta-section p { font-size: 1.1rem; color: #d4d4d4; margin-bottom: 2rem; }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #c0392b;
+            font-size: 0.9rem;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover { background-color: transparent; color: #c0392b; }
+        .cta-button.secondary { background-color: transparent; color: #c0392b; }
+        .cta-button.secondary:hover { background-color: #c0392b; color: #ffffff; }
+
+        footer {
+            background-color: #0a0a0a;
+            padding: 3rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: #c0392b;
+            text-transform: uppercase;
+        }
+
+        .footer-section a, .footer-section p {
+            font-size: 0.85rem;
+            color: #aaaaaa;
+            text-decoration: none;
+            margin-bottom: 0.6rem;
+            display: block;
+        }
+
+        .footer-section a:hover { color: #c0392b; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            nav .logo { font-size: 1.3rem; }
+            nav ul { gap: 1rem; font-size: 0.8rem; }
+            .hero { height: 50vh; }
+            .hero h1 { font-size: 2.5rem; }
+            .content-section { padding: 2rem 1.5rem; }
+            .content-section h2 { font-size: 1.8rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 1.8rem; }
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">EVASION GT</div>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/vehicules/">Véhicules</a></li>
+            <li><a href="/bateaux/" class="active">Yachting</a></li>
+            <li><a href="/experiences/">Expériences</a></li>
+            <li><a href="/magazine/">Magazine</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="breadcrumb">
+        <a href="/">Accueil</a>
+        <span>›</span>
+        <span>Yachting</span>
+    </div>
+
+    <section class="hero"><div class="hero-content"><h1>Location de Bateaux & Yachts — Cannes, Antibes, Monaco</h1><p>Croisières de rêve en Méditerranée</p></div></section><section class="content-section"><p style="font-size: 1.1rem; margin-bottom: 2rem;">Explorez la Méditerranée à bord de nos yachts et bateaux de luxe. Du semi-rigide dynamique au yacht moteur élégant, chaque embarcation offre confort, sécurité et élégance pour vos vacances inoubliables.</p><div class="card-grid">    <div class="card">
+        <div class="card-image">⛵</div>
+        <div class="card-body">
+            <h3>Capelli Tempest 900</h3>
+            <div class="card-price">600€/jour</div>
+            <p class="card-desc">Semi-rigide performant pour 8 pers</p>
+            <a href="/contact/" class="card-cta">Réserver</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image">⛵</div>
+        <div class="card-body">
+            <h3>Lomac GT 12.0</h3>
+            <div class="card-price">1200€/jour</div>
+            <p class="card-desc">Vitesse et confort combinés</p>
+            <a href="/contact/" class="card-cta">Réserver</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image">⛵</div>
+        <div class="card-body">
+            <h3>Fjord 40 Open</h3>
+            <div class="card-price">1800€/jour</div>
+            <p class="card-desc">Luxe scandinave avec capacité de 12</p>
+            <a href="/contact/" class="card-cta">Réserver</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image">⛵</div>
+        <div class="card-body">
+            <h3>Sunseeker Predator 50</h3>
+            <div class="card-price">3200€/jour</div>
+            <p class="card-desc">Yacht moteur élégant et spacieux</p>
+            <a href="/contact/" class="card-cta">Réserver</a>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-image">⛵</div>
+        <div class="card-body">
+            <h3>Princess V65</h3>
+            <div class="card-price">4500€/jour</div>
+            <p class="card-desc">Yacht de luxe ultime avec crew</p>
+            <a href="/contact/" class="card-cta">Réserver</a>
+        </div>
+    </div>
+</div></section><section class="cta-section"><h2>Larguez les Amarres</h2><p>Réservez votre yacht et naviguez vers l'paradis méditerranéen</p><a href="/contact/" class="cta-button">Demander un Devis</a></section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <a href="/">Accueil</a>
+                <a href="/vehicules/">Supercar</a>
+                <a href="/bateaux/">Yacht</a>
+                <a href="/experiences/">Expériences</a>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <a href="/magazine/">Magazine</a>
+                <a href="/a-propos/">À Propos</a>
+                <a href="/contact/">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h4>Légal</h4>
+                <a href="/mentions-legales/">Mentions Légales</a>
+                <a href="/confidentialite/">Confidentialité</a>
+                <a href="/cgv/">Conditions Générales</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Côte d'Azur, France</p>
+                <p>+33 (0)4 93 XX XX XX</p>
+                <p>info@evasion-gt.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EVASION GT. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>
