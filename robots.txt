@@ -1,0 +1,27 @@
+# EVASION GT - Robots Configuration
+User-agent: *
+Allow: /
+Allow: /vehicules/
+Allow: /bateaux/
+Allow: /experiences/
+Allow: /magazine/
+Allow: /a-propos/
+Allow: /contact/
+
+# Block access to sensitive folders
+Disallow: /admin/
+Disallow: /private/
+Disallow: /config/
+
+# Allow search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Sitemap reference
+Sitemap: https://evasion-gt.com/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 1

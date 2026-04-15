@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | EVASION GT Côte d'Azur</title>
+    <meta name="description" content="Découvrez l'histoire et la passion derrière EVASION GT, votre partenaire de confiance pour les expériences de luxe sur la Côte d'Azur.">
+    <meta name="keywords" content="à propos, EVASION GT, supercar, yacht, Côte d'Azur, luxe">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="À Propos | EVASION GT">
+    <meta property="og:description" content="Découvrez l'histoire et la passion derrière EVASION GT.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evasion-gt.com/a-propos/">
+    <meta property="og:image" content="https://evasion-gt.com/assets/og-image.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://evasion-gt.com/a-propos/">
+    
+    <!-- JSON-LD Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://evasion-gt.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "À Propos",
+          "item": "https://evasion-gt.com/a-propos/"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #161616;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #c0392b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #c0392b;
+        }
+
+        nav a.active {
+            color: #c0392b;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #c0392b;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 3rem;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb a {
+            color: #c0392b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #e74c3c;
+        }
+
+        .breadcrumb span {
+            color: #888;
+            margin: 0 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1616 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(192, 57, 43, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(192, 57, 43, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 4rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .content-section h3 {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #c0392b;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            color: #cccccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .value-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 2rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: #c0392b;
+            box-shadow: 0 10px 30px rgba(192, 57, 43, 0.2);
+        }
+
+        .value-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #c0392b;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: #aaaaaa;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .team-member {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            border-color: #c0392b;
+            transform: translateY(-5px);
+        }
+
+        .team-member-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #2a1616 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .team-member-info {
+            padding: 1.5rem;
+        }
+
+        .team-member h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .team-member-role {
+            font-size: 0.9rem;
+            color: #c0392b;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .team-member p {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: #2a1616;
+            color: #c0392b;
+            text-decoration: none;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #c0392b;
+            color: #ffffff;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1616 100%);
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #c0392b;
+            font-size: 0.9rem;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #c0392b;
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            color: #c0392b;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: #c0392b;
+            color: #ffffff;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 3rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #c0392b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section a,
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #c0392b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            nav .logo {
+                font-size: 1.3rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .breadcrumb {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.75rem;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .content-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .values-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .content-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">EVASION GT</div>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/vehicules/">Supercar</a></li>
+            <li><a href="/bateaux/">Yacht</a></li>
+            <li><a href="/experiences/">Expériences</a></li>
+            <li><a href="/magazine/">Magazine</a></li>
+            <li><a href="/a-propos/" class="active">À Propos</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Accueil</a>
+        <span>›</span>
+        <span>À Propos</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Notre Histoire</h1>
+            <p>Passion, Luxe et Excellence sur la Côte d'Azur</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <h2>Qui Sommes-Nous?</h2>
+        <p>EVASION GT est le leader incontesté des expériences de luxe sur la Côte d'Azur. Depuis notre création, nous nous engageons à offrir des moments inoubliables à travers des expériences exceptionnelles mêlant supercar haut de gamme et yacht de prestige.</p>
+        <p>Notre passion pour le luxe, la mécanique et l'aventure nous pousse à repousser les limites chaque jour. Nous croyons que chaque client mérite une expérience personnalisée, pensée jusque dans les moindres détails.</p>
+
+        <h3>Notre Mission</h3>
+        <p>Créer des souvenirs exceptionnels en offrant accès aux machines les plus prestigieuses et aux expériences les plus luxueuses de la Côte d'Azur. Nous nous engageons à combiner sécurité, qualité et excellence dans chaque aspect de nos services.</p>
+
+        <h3>Nos Valeurs</h3>
+        <div class="values-grid">
+            <div class="value-card">
+                <h4>Excellence</h4>
+                <p>Nous ne faisons pas de compromis sur la qualité. Chaque détail compte, de la sélection des véhicules à la formation de notre personnel.</p>
+            </div>
+            <div class="value-card">
+                <h4>Sécurité</h4>
+                <p>La sécurité de nos clients et de notre équipe est notre priorité absolue. Tous nos véhicules sont régulièrement inspectés et entretenus.</p>
+            </div>
+            <div class="value-card">
+                <h4>Passion</h4>
+                <p>Nous aimons ce que nous faisons. Notre enthousiasme se reflète dans chaque expérience que nous proposons.</p>
+            </div>
+            <div class="value-card">
+                <h4>Personnalisation</h4>
+                <p>Pas deux clients ne sont identiques. Nous créons des expériences sur mesure adaptées à vos envies et préférences.</p>
+            </div>
+        </div>
+
+        <h3>Pourquoi Choisir EVASION GT?</h3>
+        <p>Nous offrons bien plus qu'une simple location de véhicule. Nous proposons une expérience complète, immersive et inoubliable. Notre équipe d'experts passionnés, nos collections exclusives de supercars et yachts, et notre connaissance intime de la Côte d'Azur font de nous le choix évident pour les clients exigeants.</p>
+
+        <h2 style="margin-top: 3rem;">L'Équipe EVASION GT</h2>
+        <p>Notre équipe est composée de professionnels passionnés, experts dans leurs domaines respectifs. Chaque membre apporte son savoir-faire unique pour garantir que votre expérience soit absolument exceptionnelle.</p>
+
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="team-member-image">👨</div>
+                <div class="team-member-info">
+                    <h4>Alexis Bureau</h4>
+                    <div class="team-member-role">Fondateur & Directeur</div>
+                    <p>Visionnaire passionné par le luxe et les véhicules d'exception, Alexis dirige EVASION GT avec expertise et dévouement.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/alexis-b" target="_blank" title="LinkedIn">in</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="team-member-image">👨‍💼</div>
+                <div class="team-member-info">
+                    <h4>Équipe Expériences</h4>
+                    <div class="team-member-role">Conducteurs Professionnels</div>
+                    <p>Nos conducteurs certifiés possèdent une expertise exceptionnelle et une connaissance approfondie de chaque véhicule.</p>
+                    <div class="social-links">
+                        <a href="/contact/" title="Nous Contacter">✓</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="team-member">
+                <div class="team-member-image">👨‍✈️</div>
+                <div class="team-member-info">
+                    <h4>Équipe Maritime</h4>
+                    <div class="team-member-role">Capitaines & Crew</div>
+                    <p>Notre équipe maritime offre un service de classe mondiale pour vos croisières de luxe en Méditerranée.</p>
+                    <div class="social-links">
+                        <a href="/contact/" title="Nous Contacter">✓</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Notre Engagement Envers Vous</h3>
+        <p>Nous nous engageons à respecter les plus hauts standards d'excellence, de sécurité et de service client. Chaque interaction avec EVASION GT reflète notre engagement envers la qualité et la satisfaction complète.</p>
+        <p>Votre confiance est précieuse. C'est pourquoi nous travaillons sans relâche pour dépasser vos attentes à chaque étape de votre expérience.</p>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt à Vivre l'Expérience?</h2>
+        <p>Rejoignez les clients les plus exigeants qui ont déjà découvert la magie d'EVASION GT</p>
+        <a href="/contact/" class="cta-button">Demander un Devis</a>
+        <a href="/experiences/" class="cta-button secondary">Explorer les Expériences</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <a href="/">Accueil</a>
+                <a href="/vehicules/">Supercar</a>
+                <a href="/bateaux/">Yacht</a>
+                <a href="/experiences/">Expériences</a>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <a href="/magazine/">Magazine</a>
+                <a href="/a-propos/">À Propos</a>
+                <a href="/contact/">Contact</a>
+                <a href="/faq/">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Légal</h4>
+                <a href="/mentions-legales/">Mentions Légales</a>
+                <a href="/confidentialite/">Confidentialité</a>
+                <a href="/cgv/">Conditions Générales</a>
+            </div>
+            <div class="footer-section">
+                <h4>Localisation</h4>
+                <p>Côte d'Azur, France</p>
+                <p>+33 (0)4 93 XX XX XX</p>
+                <p>info@evasion-gt.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EVASION GT. Tous droits réservés. | Luxury Supercar & Yacht Experiences on Côte d'Azur</p>
+        </div>
+    </footer>
+</body>
+</html>

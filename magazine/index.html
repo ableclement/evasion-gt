@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magazine & Guides | Supercar & Yacht | EVASION GT Côte d'Azur</title>
+    <meta name="description" content="Découvrez nos guides et articles sur les locations de supercar et yacht de luxe sur la Côte d'Azur. Conseils, actualités et stories du lifestyle.">
+    <meta name="keywords" content="magazine, guides, supercar, yacht, Côte d'Azur, location luxe">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Magazine & Guides | EVASION GT">
+    <meta property="og:description" content="Guides et articles sur les locations de supercar et yacht de luxe sur la Côte d'Azur.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evasion-gt.com/magazine/">
+    <meta property="og:image" content="https://evasion-gt.com/assets/og-image.jpg">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://evasion-gt.com/magazine/">
+    
+    <!-- JSON-LD Breadcrumb -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://evasion-gt.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Magazine",
+          "item": "https://evasion-gt.com/magazine/"
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #161616;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #c0392b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #c0392b;
+        }
+
+        nav a.active {
+            color: #c0392b;
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #c0392b;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            padding: 1rem 3rem;
+            background-color: #1a1a1a;
+            border-bottom: 1px solid #222;
+            font-size: 0.85rem;
+        }
+
+        .breadcrumb a {
+            color: #c0392b;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #e74c3c;
+        }
+
+        .breadcrumb span {
+            color: #888;
+            margin: 0 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1616 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(192, 57, 43, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(192, 57, 43, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .hero .accent-text {
+            color: #c0392b;
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            padding: 4rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .articles-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .article-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 4px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .article-card:hover {
+            border-color: #c0392b;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(192, 57, 43, 0.2);
+        }
+
+        .article-card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #2a1616 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #c0392b;
+            overflow: hidden;
+        }
+
+        .article-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card-category {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c0392b;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .article-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #ffffff;
+            line-height: 1.4;
+        }
+
+        .article-card p {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .article-card-date {
+            font-size: 0.8rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .article-card-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: #c0392b;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .article-card-link:hover {
+            color: #e74c3c;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2a1616 100%);
+            padding: 3rem;
+            text-align: center;
+            margin: 4rem 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #c0392b;
+            color: #ffffff;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 2px solid #c0392b;
+            font-size: 0.9rem;
+        }
+
+        .cta-button:hover {
+            background-color: transparent;
+            color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 3rem;
+            border-top: 1px solid #333;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #c0392b;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section a,
+        .footer-section p {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #c0392b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            nav .logo {
+                font-size: 1.3rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .breadcrumb {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.75rem;
+            }
+
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .articles-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .articles-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .articles-section h2 {
+                font-size: 1.5rem;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">EVASION GT</div>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/vehicules/">Supercar</a></li>
+            <li><a href="/bateaux/">Yacht</a></li>
+            <li><a href="/experiences/">Expériences</a></li>
+            <li><a href="/magazine/" class="active">Magazine</a></li>
+            <li><a href="/a-propos/">À Propos</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="/">Accueil</a>
+        <span>›</span>
+        <span>Magazine</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Magazine <span class="accent-text">&</span> Guides</h1>
+            <p>Conseils, actualités et stories du lifestyle de luxe sur la Côte d'Azur</p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section class="articles-section">
+        <h2>Nos Derniers Articles</h2>
+        
+        <div class="articles-grid">
+            <!-- Article 1 -->
+            <a href="/magazine/guide-location-supercar-cote-azur/" class="article-card">
+                <div class="article-card-image">🏎️</div>
+                <div class="article-card-content">
+                    <span class="article-card-category">Guide</span>
+                    <h3>Guide Complet de la Location de Supercar sur la Côte d'Azur</h3>
+                    <p>Découvrez tout ce que vous devez savoir pour louer une supercar de luxe et vivre l'expérience ultime.</p>
+                    <div class="article-card-date">15 avril 2026</div>
+                    <span class="article-card-link">Lire l'article →</span>
+                </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="/magazine/yacht-charter-tips/" class="article-card">
+                <div class="article-card-image">⛵</div>
+                <div class="article-card-content">
+                    <span class="article-card-category">Conseils</span>
+                    <h3>5 Conseils pour Louer un Yacht de Luxe</h3>
+                    <p>Des recommandations d'experts pour planifier la croisière de vos rêves en Méditerranée.</p>
+                    <div class="article-card-date">12 avril 2026</div>
+                    <span class="article-card-link">Lire l'article →</span>
+                </div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="/magazine/saisons-cote-azur/" class="article-card">
+                <div class="article-card-image">🌞</div>
+                <div class="article-card-content">
+                    <span class="article-card-category">Destination</span>
+                    <h3>Les Meilleures Saisons pour Découvrir la Côte d'Azur</h3>
+                    <p>Explorez les charmes de la région à travers les quatre saisons et planifiez votre visite idéale.</p>
+                    <div class="article-card-date">10 avril 2026</div>
+                    <span class="article-card-link">Lire l'article →</span>
+                </div>
+            </a>
+
+            <!-- Article 4 -->
+            <a href="/magazine/lifestyle-luxury/" class="article-card">
+                <div class="article-card-image">✨</div>
+                <div class="article-card-content">
+                    <span class="article-card-category">Lifestyle</span>
+                    <h3>Vivre le Lifestyle de Luxe: Nos Stories Inspirantes</h3>
+                    <p>Des témoignages et expériences vécues par nos clients qui ont exploré le luxe.</p>
+                    <div class="article-card-date">8 avril 2026</div>
+                    <span class="article-card-link">Lire l'article →</span>
+                </div>
+            </a>
+
+            <!-- Article 5 -->
+            <a href="/magazine/supercar-culture/" class="article-card">
+                <div class="article-card-image">🏁</div>
+                <div class="article-card-content">
+                    <span class="article-card-category">Culture</span>
+                    <h3>La Culture des Supercars: Passion & Performance</h3>
+                    <p>Plongez dans l'univers fascinant des supercars et découvrez ce qui les rend exceptionnelles.</p>
+                    <div class="article-card-date">5 avril 2026</div>
+                    <span class="article-card-link">Lire l'article →</span>
+                </div>
+            </a>
+
+            <!-- Article 6 -->
+            <a href="/magazine/wellness-travel/" class="article-card">
+                <div class="article-card-image">🧘</div>
+                <div class="article-card-content">
+                    <span class="article-card-category">Voyage</span>
+                    <h3>Escapades Bien-être et Luxe sur la Méditerranée</h3>
+                    <p>Combinez aventure, détente et bien-être pour des vacances vraiment exceptionnelles.</p>
+                    <div class="article-card-date">1er avril 2026</div>
+                    <span class="article-card-link">Lire l'article →</span>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Prêt pour votre prochaine aventure?</h2>
+        <p>Explorez nos formules exclusives et commencez votre expérience EVASION GT dès aujourd'hui</p>
+        <a href="/contact/" class="cta-button">Demander une Devis</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <a href="/">Accueil</a>
+                <a href="/vehicules/">Supercar</a>
+                <a href="/bateaux/">Yacht</a>
+                <a href="/experiences/">Expériences</a>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <a href="/magazine/">Magazine</a>
+                <a href="/a-propos/">À Propos</a>
+                <a href="/contact/">Contact</a>
+                <a href="/faq/">FAQ</a>
+            </div>
+            <div class="footer-section">
+                <h4>Légal</h4>
+                <a href="/mentions-legales/">Mentions Légales</a>
+                <a href="/confidentialite/">Confidentialité</a>
+                <a href="/cgv/">Conditions Générales</a>
+            </div>
+            <div class="footer-section">
+                <h4>Localisation</h4>
+                <p>Côte d'Azur, France</p>
+                <p>+33 (0)4 93 XX XX XX</p>
+                <p>info@evasion-gt.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">YouTube</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 EVASION GT. Tous droits réservés. | Luxury Supercar & Yacht Experiences on Côte d'Azur</p>
+        </div>
+    </footer>
+</body>
+</html>

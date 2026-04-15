@@ -1,0 +1,15 @@
+# EVASION GT - Cloudflare Pages Redirects Configuration
+
+# Redirect www to non-www
+https://www.evasion-gt.com/* https://evasion-gt.com/:splat 301
+
+# SPA fallback - if a request doesn't match any static file, serve index.html
+/* /index.html 200
+
+# Cache control headers for static assets
+/css/* 200
+/js/* 200
+/images/* 200
+
+# No cache for HTML files
+/*.html 200

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Expériences de luxe sur la Côte d'Azur : baptême supercar, circuit de course, tour scenic, ou combo terre & mer. Forfaits sur mesure dès 99€.">
+    <meta name="og:title" content="Expériences Luxe | EVASION GT Côte d'Azur">
+    <meta name="og:description" content="Pass Découverte, Circuit No Limit, Tour Experience, Terre & Mer. Aventures automobiles et nautiques uniques.">
+    <meta name="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="canonical" content="https://evasion-gt.com/experiences/">
+    <title>Expériences & Forfaits Luxe | Supercar & Yacht | EVASION GT Côte d'Azur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{font-family:'Montserrat',sans-serif;background:#161616;color:#d4d4d4;line-height:1.7}
+        h1,h2,h3,h4{font-family:'Playfair Display',serif;color:#fff;line-height:1.2}
+        a{color:inherit;text-decoration:none}
+        img{display:block;width:100%;height:100%;object-fit:cover}
+
+        nav{position:fixed;top:0;width:100%;background:rgba(22,22,22,0.92);backdrop-filter:blur(14px);padding:1rem 2rem;z-index:1000;border-bottom:1px solid rgba(255,255,255,0.06)}
+        .nav-inner{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+        .logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:800;letter-spacing:0.08em;color:#fff}
+        .logo b{color:#c0392b}
+        nav ul{display:flex;list-style:none;gap:0.2rem}
+        nav a{font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#888;padding:0.5rem 0.9rem;border-radius:3px;transition:all 0.25s;cursor:pointer}
+        nav a:hover,nav a.active{color:#fff;background:rgba(192,57,43,0.15)}
+        nav a.active{color:#c0392b}
+
+        .breadcrumb{max-width:1400px;margin:80px auto 0;padding:1.5rem 2rem;font-size:0.75rem;color:#666;text-transform:uppercase;letter-spacing:0.1em}
+        .breadcrumb a{color:#888;transition:color 0.3s}
+        .breadcrumb a:hover{color:#c0392b}
+        .breadcrumb span{color:#c0392b;margin:0 0.5rem}
+
+        .container{max-width:1400px;margin:0 auto;padding:0 2rem}
+        .narrow{max-width:900px;margin:0 auto}
+        .sec{padding:5rem 2rem}
+        .sec-dark{background:#161616}
+        .sec-alt{background:#1c1c1c}
+        .sec-title{font-size:2.2rem;font-weight:700;text-align:center;margin-bottom:0.6rem}
+        .sec-sub{text-align:center;color:#888;font-size:0.92rem;max-width:650px;margin:0 auto 3rem;line-height:1.7}
+        .hl{color:#c0392b}
+        .hl-blue{color:#1e3a5f}
+
+        .btn{display:inline-block;background:#fff;color:#111;padding:0.85rem 2.2rem;font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;cursor:pointer;transition:all 0.3s}
+        .btn:hover{background:#111;color:#fff}
+        .btn-outline{background:transparent;color:#fff;border:1px solid #444}
+        .btn-outline:hover{border-color:#c0392b;color:#c0392b}
+        .btn-red{background:#c0392b;color:#fff;border:1px solid #c0392b}
+        .btn-red:hover{background:transparent;color:#c0392b}
+
+        .hero{height:60vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+        .hero-bg{position:absolute;inset:0;z-index:0}
+        .hero-bg img{width:100%;height:100%;object-fit:cover}
+        .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,22,22,0.3) 0%,rgba(22,22,22,0.7) 60%,#161616 100%);z-index:1}
+        .hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:900px}
+        .hero h1{font-size:clamp(2.5rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem;letter-spacing:0.02em}
+        .hero p{font-size:1rem;color:#bbb;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto}
+
+        .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+        .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem}
+        .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:2rem}
+
+        .exp{background:#1c1c1c;padding:2.5rem;transition:all 0.3s;border-left:3px solid transparent;border-radius:4px}
+        .exp:hover{border-left-color:#c0392b;transform:translateX(4px);box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+        .exp h4{font-size:1.1rem;margin-bottom:0.3rem;color:#fff}
+        .exp .price{color:#c0392b;font-weight:700;font-size:1.15rem;margin-bottom:0.8rem}
+        .exp p{font-size:0.85rem;color:#888;line-height:1.6}
+
+        .exp-section{margin-bottom:4rem}
+        .exp-section h3{font-size:1.4rem;margin-bottom:1.5rem;color:#fff;display:flex;align-items:center;gap:1rem}
+        .exp-section h3::before{content:'';width:3px;height:25px;background:#c0392b}
+
+        .card{background:#1c1c1c;overflow:hidden;transition:all 0.4s cubic-bezier(0.23,1,0.32,1);cursor:pointer;border-radius:4px}
+        .card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+        .card-img{aspect-ratio:16/10;overflow:hidden;position:relative}
+        .card-img img{transition:transform 0.6s cubic-bezier(0.23,1,0.32,1)}
+        .card:hover .card-img img{transform:scale(1.05)}
+        .card-body{padding:1.8rem}
+        .card-badge{font-size:0.6rem;color:#c0392b;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:0.4rem}
+        .card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;color:#fff}
+        .card-specs{font-size:0.78rem;color:#666;margin-bottom:0.8rem;line-height:1.5}
+        .card-price{font-size:0.95rem;color:#c0392b;font-weight:700}
+
+        .full-img{height:60vh;position:relative;overflow:hidden}
+        .full-img img{width:100%;height:100%;object-fit:cover}
+        .full-img .overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,rgba(22,22,22,0.8) 80%,#161616 100%);display:flex;align-items:flex-end;padding:4rem}
+        .full-img .overlay h2{font-size:2rem;max-width:600px}
+
+        .cta-sec{text-align:center;padding:5rem 2rem;background:linear-gradient(135deg,#1a0a0a,#161616);border-top:1px solid rgba(192,57,43,0.2)}
+        .cta-sec h2{margin-bottom:0.8rem}
+        .cta-sec p{color:#888;margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto}
+
+        footer{background:#111;padding:4rem 2rem;border-top:1px solid rgba(255,255,255,0.05)}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2rem;margin-bottom:3rem}
+        .footer-col h4{font-family:'Montserrat',sans-serif;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:#fff;margin-bottom:1rem}
+        .footer-col ul{list-style:none}
+        .footer-col li{margin-bottom:0.5rem}
+        .footer-col a{font-size:0.82rem;color:#666;transition:color 0.3s}
+        .footer-col a:hover{color:#c0392b}
+        .footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.05);font-size:0.75rem;color:#444}
+
+        @media(max-width:1024px){.g3,.g4{grid-template-columns:repeat(2,1fr)}.footer-grid{grid-template-columns:1fr 1fr}}
+        @media(max-width:768px){nav ul{display:flex;overflow-x:auto;white-space:nowrap;gap:0.5rem;padding-right:1rem;-webkit-overflow-scrolling:touch}nav a{font-size:0.6rem;padding:0.4rem 0.7rem;flex-shrink:0}.g3,.g4,.g2{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.full-img{height:40vh}.btn{padding:0.75rem 1.8rem;min-height:44px}.card-title{font-size:1rem}.sec-title{font-size:1.8rem}.sec{padding:3rem 2rem}.exp-section h3{font-size:1.2rem}.footer-grid{grid-template-columns:1fr}}
+    </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Accueil",
+                "item": "https://evasion-gt.com/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Expériences",
+                "item": "https://evasion-gt.com/experiences/"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-inner">
+        <div class="logo"><b>EVASION</b> GT</div>
+        <ul>
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/vehicules/">Véhicules</a></li>
+            <li><a href="/bateaux/">Yachting</a></li>
+            <li><a class="active" href="/experiences/">Expériences</a></li>
+            <li><a href="/magazine/">Magazine</a></li>
+            <li><a href="/a-propos/">À propos</a></li>
+            <li><a href="/contact/">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+    <a href="/">Accueil</a>
+    <span>›</span>
+    <span>Expériences</span>
+</div>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?w=1920&q=80" alt="Supercar experience driving"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Expériences <span class="hl">Inoubliables</span></h1>
+        <p>Du baptême supercar 30 min au forfait Terre & Mer journée complète. Chaque formule est pensée pour créer des souvenirs exceptionnels.</p>
+    </div>
+</section>
+
+<!-- EXPERIENCES CATALOGUE -->
+<section class="sec sec-dark">
+    <div class="container">
+
+        <!-- Pass Découverte & Court Terme -->
+        <div class="exp-section">
+            <h3>Baptêmes & Expériences Courts Trajets</h3>
+            <div class="g4">
+                <div class="exp">
+                    <h4>Pass Découverte</h4>
+                    <div class="price">99€</div>
+                    <p>30 minutes en Ferrari F8 ou Lamborghini Huracán. Circuit Côte d'Azur. Photo HD incluse. Initiation à la conduite haute performance.</p>
+                </div>
+                <div class="exp">
+                    <h4>Virage Premium</h4>
+                    <div class="price">249€</div>
+                    <p>1h en Porsche 911 Turbo ou Mercedes-AMG GT. Itinéraire scenic Esterel ou Corniches. Guide passager inclus.</p>
+                </div>
+                <div class="exp">
+                    <h4>Sunset Drive</h4>
+                    <div class="price">349€</div>
+                    <p>2h coucher de soleil en Supercar. Départ Nice vers Villefranche, Cannes ou Monaco. Photographie professionnelle.</p>
+                </div>
+                <div class="exp">
+                    <h4>Soirée Prestige</h4>
+                    <div class="price">490€</div>
+                    <p>3h en Supercar avec destination restaurant partenaire. Itinéraire gastronomique personnalisé. Stockage voiture.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Circuit Professionnel -->
+        <div class="exp-section">
+            <h3>Circuit No Limit — Conduite Haute Performance</h3>
+            <div class="g2">
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1541222190986-04d2620e2fe0?w=800&q=80" alt="Circuit racing car"></div>
+                    <div class="card-body">
+                        <div class="card-badge">CIRCUIT</div>
+                        <h3 class="card-title">Half-Day Circuit (4h)</h3>
+                        <div class="card-specs">
+                            • GT3 Cup ou RS3 TCR<br>
+                            • 6 sessions de piste<br>
+                            • Briefing pro inclus<br>
+                            • Data telémétrie + vidéo<br>
+                            • Pilote instructeur sur demande
+                        </div>
+                        <div class="card-price">490€</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&q=80" alt="Track day circuit"></div>
+                    <div class="card-body">
+                        <div class="card-badge">CIRCUIT</div>
+                        <h3 class="card-title">Full Day Circuit (8h)</h3>
+                        <div class="card-specs">
+                            • GT3 Cup ou RS3 TCR<br>
+                            • 12 sessions de piste<br>
+                            • Déjeuner track-side<br>
+                            • Analyse complète performance<br>
+                            • Certificat de participation
+                        </div>
+                        <div class="card-price">890€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tour Experience -->
+        <div class="exp-section">
+            <h3>Tour Experience — Routes d'Exception</h3>
+            <div class="g3">
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Scenic drive Côte d'Azur"></div>
+                    <div class="card-body">
+                        <div class="card-badge">TOUR</div>
+                        <h3 class="card-title">Half-Day Scenic (4h)</h3>
+                        <div class="card-specs">
+                            • Supercar au choix<br>
+                            • Corniches ou Esterel<br>
+                            • Arrêts photo panorama<br>
+                            • Road-book fourni<br>
+                            • Carburant inclus
+                        </div>
+                        <div class="card-price">690€</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Monaco mountain drive"></div>
+                    <div class="card-body">
+                        <div class="card-badge">TOUR</div>
+                        <h3 class="card-title">Full Day Epic (8h)</h3>
+                        <div class="card-specs">
+                            • Supercar premium<br>
+                            • Route Turbie + Esterel<br>
+                            • Lunch restaurant étoilé<br>
+                            • Photographie profeessionnelle<br>
+                            • Itinéraire personnalisé
+                        </div>
+                        <div class="card-price">1 290€</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=800&q=80" alt="Supercar mountain pass"></div>
+                    <div class="card-body">
+                        <div class="card-badge">TOUR</div>
+                        <h3 class="card-title">Week-End Challenge (2j)</h3>
+                        <div class="card-specs">
+                            • Même Supercar 2 jours<br>
+                            • Route + Circuit session<br>
+                            • Hôtel 4★ inclus<br>
+                            • Chef instructeur<br>
+                            • Assurance premium
+                        </div>
+                        <div class="card-price">2 590€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terre & Mer Combo -->
+        <div class="exp-section">
+            <h3>Terre & Mer — Notre Signature</h3>
+            <div class="g2">
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1553531088-f352591f3340?w=800&q=80" alt="Supercar morning drive"></div>
+                    <div class="card-body">
+                        <div class="card-badge">COMBO</div>
+                        <h3 class="card-title">Terre & Mer — Jour Complet</h3>
+                        <div class="card-specs">
+                            <strong>Matin (4h)</strong><br>
+                            • Supercar + Scenic drive<br>
+                            • Déjeuner bord de mer<br><br>
+                            <strong>Après-midi (4h)</strong><br>
+                            • Yacht ou semi-rigide<br>
+                            • Croisière champagne<br>
+                            • Baignade calanques
+                        </div>
+                        <div class="card-price">1 890€</div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=800&q=80" alt="Yacht afternoon sailing"></div>
+                    <div class="card-body">
+                        <div class="card-badge">COMBO</div>
+                        <h3 class="card-title">Prestige Week-End (2j)</h3>
+                        <div class="card-specs">
+                            <strong>Jour 1</strong><br>
+                            • Supercar tour complet<br>
+                            • Hôtel 5★ Cannes<br><br>
+                            <strong>Jour 2</strong><br>
+                            • Yacht privé 8h<br>
+                            • Déjeuner à bord<br>
+                            • Pique-nique Îles d'Hyères
+                        </div>
+                        <div class="card-price">4 290€</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Building -->
+        <div class="exp-section">
+            <h3>Forfaits Groupes & Team Building</h3>
+            <div class="g4">
+                <div class="exp">
+                    <h4>Pilot Battle</h4>
+                    <div class="price">dès 890€</div>
+                    <p>Compétition circuit GT3 Cup. Meilleur temps gagne. Débriefing collectif. À partir de 4 personnes. Dîner d'après-course.</p>
+                </div>
+                <div class="exp">
+                    <h4>Découverte Groupe</h4>
+                    <div class="price">dès 490€</div>
+                    <p>Chacun 30 min en Supercar. Briefing commun. Photos group. Forfait à partir de 4 participants. Flexible.</p>
+                </div>
+                <div class="exp">
+                    <h4>Rally Route</h4>
+                    <div class="price">dès 1 290€</div>
+                    <p>Convoi 4-8 Supercars. Itinéraire secret. Postes photo stop. Déjeuner étape. Jeu de route inclus.</p>
+                </div>
+                <div class="exp">
+                    <h4>Corporate Package</h4>
+                    <div class="price">devis</div>
+                    <p>Expérience sur mesure pour entreprise. Terre & Mer ou Circuit. Team building gastronomique. Assurance groupe.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FULL-WIDTH IMAGE -->
+<section class="full-img">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80" alt="Yacht sailing Mediterranean">
+    <div class="overlay"><h2>Chaque expérience conçue<br><span class="hl-blue">pour créer des souvenirs.</span></h2></div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-sec">
+    <div class="container narrow">
+        <h2>Prêt à Vivre l'Expérience ?</h2>
+        <p>Contactez notre équipe pour personnaliser votre formule ou réserver votre date. Disponibilités toute l'année, 7j/7.</p>
+        <a href="/contact/" class="btn btn-red">Demander un Devis</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>EVASION GT</h4>
+            <p>Location de supercars et yachts de luxe sur la Côte d'Azur depuis 2018. Expériences inoubliables sur terre et mer.</p>
+        </div>
+        <div class="footer-col">
+            <h4>Accès Rapides</h4>
+            <ul>
+                <li><a href="/vehicules/">Supercars</a></li>
+                <li><a href="/bateaux/">Yachts</a></li>
+                <li><a href="/experiences/">Expériences</a></li>
+                <li><a href="/magazine/">Magazine</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Catégories</h4>
+            <ul>
+                <li><a href="/vehicules/">Ferrari</a></li>
+                <li><a href="/vehicules/">Lamborghini</a></li>
+                <li><a href="/vehicules/">Porsche</a></li>
+                <li><a href="/bateaux/">Yachts</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Légal</h4>
+            <ul>
+                <li><a href="#">Mentions Légales</a></li>
+                <li><a href="#">CGV</a></li>
+                <li><a href="#">Politique Confidentialité</a></li>
+                <li><a href="#">Cookies</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>Contact</h4>
+            <ul>
+                <li><a href="tel:+33493629999">+33 4 93 62 99 99</a></li>
+                <li><a href="mailto:hello@evasion-gt.com">hello@evasion-gt.com</a></li>
+                <li>Nice, Côte d'Azur</li>
+                <li><a href="#">Réseaux Sociaux</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 EVASION GT. Tous droits réservés. | <a href="#">Mentions légales</a> | <a href="#">Politique de confidentialité</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
