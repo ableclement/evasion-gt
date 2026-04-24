@@ -510,6 +510,8 @@
             </a>
 
 
+
+
             <!-- Article 1 -->
             <a href="/magazine/guide-location-supercar-cote-azur/" class="article-card">
                 <div class="article-card-image"><img src="https://images.unsplash.com/photo-1592198084033-aade902d1aae?w=600&h=400&fit=crop&q=80" alt="Location supercar Cote Azur" loading="lazy"></div>
@@ -592,7 +594,88 @@
     </section>
 
     <!-- Footer -->
-    <footer>
+    
+
+
+<!-- PAGINATION_INJECTED -->
+<nav id="pagination-nav" aria-label="Pagination articles" style="display:none;max-width:1200px;margin:40px auto 60px auto;padding:0 20px;text-align:center;font-family:'Inter',sans-serif;">
+  <button id="pg-prev" class="pg-btn" type="button" aria-label="Page précédente" style="padding:10px 18px;margin:0 4px;border:1px solid #e5e5e7;background:#fff;border-radius:6px;cursor:pointer;font-size:14px;color:#1d1d1f;">← Précédent</button>
+  <span id="pg-pages" style="display:inline-flex;gap:4px;margin:0 8px;"></span>
+  <button id="pg-next" class="pg-btn" type="button" aria-label="Page suivante" style="padding:10px 18px;margin:0 4px;border:1px solid #e5e5e7;background:#fff;border-radius:6px;cursor:pointer;font-size:14px;color:#1d1d1f;">Suivant →</button>
+</nav>
+<style>
+  #pagination-nav .pg-page { padding:10px 14px; min-width:40px; border:1px solid #e5e5e7; background:#fff; border-radius:6px; cursor:pointer; font-size:14px; color:#1d1d1f; }
+  #pagination-nav .pg-page.active { background:#c0392b; color:#fff; border-color:#c0392b; font-weight:600; }
+  #pagination-nav .pg-btn:disabled { opacity:0.4; cursor:not-allowed; }
+  #pagination-nav .pg-page:hover:not(.active) { background:#f5f5f7; }
+</style>
+<script>
+(function(){
+  var PAGE_SIZE = 9;
+  var items = document.querySelectorAll('.articles-grid > .article-card');
+  if (items.length <= PAGE_SIZE) return;  // Pas besoin de pagination
+
+  var nav = document.getElementById('pagination-nav');
+  var pagesContainer = document.getElementById('pg-pages');
+  var prevBtn = document.getElementById('pg-prev');
+  var nextBtn = document.getElementById('pg-next');
+  var totalPages = Math.ceil(items.length / PAGE_SIZE);
+  var currentPage = 1;
+
+  // Lecture du hash #page-N à l'arrivée
+  var hashMatch = window.location.hash.match(/page-(\d+)/);
+  if (hashMatch) {
+    var p = parseInt(hashMatch[1], 10);
+    if (p >= 1 && p <= totalPages) currentPage = p;
+  }
+
+  function render(page) {
+    currentPage = page;
+    items.forEach(function(el, idx){
+      var start = (page - 1) * PAGE_SIZE;
+      var end = start + PAGE_SIZE;
+      el.style.display = (idx >= start && idx < end) ? '' : 'none';
+    });
+    pagesContainer.innerHTML = '';
+    for (var i = 1; i <= totalPages; i++) {
+      var btn = document.createElement('button');
+      btn.className = 'pg-page' + (i === page ? ' active' : '');
+      btn.textContent = i;
+      btn.setAttribute('aria-label', 'Page ' + i);
+      (function(pageNum){
+        btn.addEventListener('click', function(){
+          history.replaceState(null, '', '#page-' + pageNum);
+          render(pageNum);
+          window.scrollTo({ top: nav.getBoundingClientRect().top + window.pageYOffset - 120, behavior: 'smooth' });
+        });
+      })(i);
+      pagesContainer.appendChild(btn);
+    }
+    prevBtn.disabled = (page === 1);
+    nextBtn.disabled = (page === totalPages);
+  }
+
+  prevBtn.addEventListener('click', function(){
+    if (currentPage > 1) {
+      history.replaceState(null, '', '#page-' + (currentPage - 1));
+      render(currentPage - 1);
+      window.scrollTo({ top: nav.getBoundingClientRect().top + window.pageYOffset - 120, behavior: 'smooth' });
+    }
+  });
+  nextBtn.addEventListener('click', function(){
+    if (currentPage < totalPages) {
+      history.replaceState(null, '', '#page-' + (currentPage + 1));
+      render(currentPage + 1);
+      window.scrollTo({ top: nav.getBoundingClientRect().top + window.pageYOffset - 120, behavior: 'smooth' });
+    }
+  });
+
+  nav.style.display = 'block';
+  render(currentPage);
+})();
+</script>
+<!-- /PAGINATION_INJECTED -->
+<footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>Navigation</h4>
